@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Details</title>
+</head>
+<body>
+<h1>
+    {{ post.title }}
+</h1>
+<p>{{ post.content }}</p>
+
+<h2>Comments</h2>
+<ul>
+    {% for comment in post.comment_set.all %}
+        {% include 'comment_form.html' with comment=comment %}
+    {% endfor %}
+</ul>
+
+ <a href="{% url 'post_update' post.pk %}">Edit</a>
+ <a href="{% url 'post_delete' post.pk %}">Delete</a>
+</body>
+</html>

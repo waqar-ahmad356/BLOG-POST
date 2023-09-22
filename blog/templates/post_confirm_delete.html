@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Delete</title>
+</head>
+<body>
+<h1>Confirmation Delete</h1>
+<P> Are you sure to want to delete "{{post.title}}" ?</P>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Yes, delete it</button>
+</form>
+<a href="{% url 'post_detail' post.pk %}">No,Cancel</a>
+
+</body>
+</html>
